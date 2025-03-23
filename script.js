@@ -120,7 +120,38 @@ function eatPizza() {
 orderPizza(eatPizza);
 
 
-*/
+
 
 
 //async / await.....................
+
+async function fetchData() {
+    let response = await fetch(`https://randomuser.me/api/`); 
+    let data = await response.json(); 
+    console.log(data); 
+    
+}
+
+fetchData();
+
+*/
+
+async function fetchData() {
+    try {
+        let response = await fetch(`https://randomuser.me/api/`); // Fetch data
+        let data = await response.json(); 
+        console.log(data);
+        let user = data.results[0]; 
+
+        console.log("Name:", user.name.first, user.name.last);
+        console.log("Gender:", user.gender);
+        console.log("Email:", user.email);
+        console.log("Country:", user.location.country);
+        console.log("DOB:", user.dob.age);
+    } catch (error) {
+        console.error("Error fetching data:", error);
+    }
+}
+
+fetchData();
+
