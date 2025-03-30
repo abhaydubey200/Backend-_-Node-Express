@@ -9,7 +9,7 @@ let db;
 connectDB().then((database) => {
   db = database;
 
-  // Home Route
+  
   app.get("/", (req, res) => {
     res.send("Home Page...");
   });
